@@ -1,9 +1,16 @@
 from django.urls import path
-from .views import TraineeListView, TraineeCreateView, TraineeUpdateView, TraineeDeleteView
+from .views import (
+    TraineeListView, TraineeCreateView, TraineeUpdateView, TraineeDeleteView,
+    register, user_login, user_logout
+)
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    path('', TraineeListView.as_view(), name='trainee-list'),
-    path('add/', TraineeCreateView.as_view(), name='trainee-add'),
-    path('update/<int:pk>/', TraineeUpdateView.as_view(), name='trainee-update'),
-    path('delete/<int:pk>/', TraineeDeleteView.as_view(), name='trainee-delete'),
+    path('', login_required(TraineeListView.as_view()), name='trainee-list'),
+    path('add/', login_required(TraineeCreateView.as_view()), name='trainee-add'),
+    path('update/<int:pk>/', login_required(TraineeUpdateView.as_view()), name='trainee-update'),
+    path('delete/<int:pk>/', login_required(TraineeDeleteView.as_view()), name='trainee-delete'),
+    path('register/', register, name='register'),
+    path('login/', user_login, name='login'),
+    path('logout/', user_logout, name='logout'),
 ]
