@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trainee List</title>
+</head>
+<body>
+    <h1>Trainee List</h1>
+    <ul>
+        {% for trainee in object_list %}
+            <li>{{ trainee.first_name }} {{ trainee.last_name }} - {{ trainee.email }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'trainee-add' %}">Add Trainee</a>
+</body>
+</html>
