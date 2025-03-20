@@ -73,3 +73,8 @@ def user_logout(request):
 class TraineeListCreateAPIView(generics.ListCreateAPIView):
     queryset = Trainee.objects.all()
     serializer_class = TraineeSerializer
+
+
+class TraineeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Trainee.objects.all()
+    serializer_class = TraineeSerializer

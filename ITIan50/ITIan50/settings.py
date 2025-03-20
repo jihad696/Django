@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'trainees.apps.TraineesConfig',
+    'tracks.apps.TracksConfig',
     'rest_framework',
 ]
 
