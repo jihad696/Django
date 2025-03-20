@@ -6,6 +6,8 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Trainee
 from .forms import UserRegisterForm
+from rest_framework import generics
+from .serializers import TraineeSerializer
 
 
 class TraineeListView(ListView):
@@ -66,3 +68,8 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect("login")
+
+
+class TraineeListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Trainee.objects.all()
+    serializer_class = TraineeSerializer

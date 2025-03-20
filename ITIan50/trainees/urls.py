@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     TraineeListView, TraineeCreateView, TraineeUpdateView, TraineeDeleteView,
-    register, user_login, user_logout
+    register, user_login, user_logout, TraineeListCreateAPIView
 )
 from django.contrib.auth.decorators import login_required
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', user_login, name='login'),
     path('logout/', user_logout, name='logout'),
+    path('api/trainees/', TraineeListCreateAPIView.as_view(), name='api-trainee-list-create'),
 ]
