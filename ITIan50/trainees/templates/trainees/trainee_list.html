@@ -7,7 +7,11 @@
     <h1>Trainee List</h1>
     <ul>
         {% for trainee in object_list %}
-            <li>{{ trainee.first_name }} {{ trainee.last_name }} - {{ trainee.email }}</li>
+            <li>
+                {{ trainee.first_name }} {{ trainee.last_name }} - {{ trainee.email }}
+                <a href="{% url 'trainee-update' trainee.pk %}">Update</a>
+                <a href="{% url 'trainee-delete' trainee.pk %}">Delete</a>
+            </li>
         {% endfor %}
     </ul>
     <a href="{% url 'trainee-add' %}">Add Trainee</a>

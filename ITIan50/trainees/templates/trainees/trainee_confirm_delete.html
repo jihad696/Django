@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Trainee</title>
+</head>
+<body>
+    <h1>Delete Trainee</h1>
+    <p>Are you sure you want to delete {{ object.first_name }} {{ object.last_name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'trainee-list' %}">Cancel</a>
+</body>
+</html>
